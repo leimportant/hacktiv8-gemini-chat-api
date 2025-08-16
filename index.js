@@ -21,6 +21,9 @@ app.use(express.static(path.join(__dirname, 'src/public')));
 const conversationHistory = new Map();
 
 // Helper function to manage conversation context
+// ini adalah fungsi untuk mendapatkan atau membuat percakapan baru
+// jika percakapan dengan sessionId belum ada, maka akan dibuat baru
+// percakapan ini akan menyimpan pesan dan konteks yang relevan untuk AI
 const getOrCreateConversation = (sessionId) => {
     if (!conversationHistory.has(sessionId)) {
         conversationHistory.set(sessionId, {
@@ -39,6 +42,9 @@ const getOrCreateConversation = (sessionId) => {
 };
 
 // Chat endpoint
+// ini adalah endpoint untuk mengirim pesan ke AI
+// endpoint ini akan menerima pesan dari pengguna, mengirimkannya ke AI,
+// dan mengembalikan respons AI ke pengguna
 app.post('/api/chat', async (req, res) => {
     try {
         const { message } = req.body;
