@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini AI Chatbot</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gemini AI Chatbot</h1>
+        </header>
+        
+        <div id="chat-container">
+            <div id="chat-box">
+                <!-- Messages will be inserted here by JavaScript -->
+                <div class="welcome-message">
+                    <p>👋 Hi! I'm your AI assistant. How can I help you today?</p>
+                </div>
+            </div>
+            
+            <div class="input-container">
+                <label for="file-upload" class="file-upload-label">
+                    <span class="upload-icon">📎</span>
+                </label>
+                <input type="file" 
+                       id="file-upload" 
+                       accept="image/*"
+                       style="display: none">
+                <input type="text" 
+                       id="user-input" 
+                       placeholder="Type your message here..."
+                       autocomplete="off"
+                       autofocus>
+                <button id="send-button">
+                    <span>Send</span>
+                </button>
+            </div>
+
+            <!-- Updated preview modal -->
+            <div id="preview-modal" class="modal">
+                <div class="modal-content">
+                    <h3>Image Preview</h3>
+                    <div id="image-preview"></div>
+                    <div class="prompt-container">
+                        <label for="modal-prompt">What would you like to know about this image?</label>
+                        <textarea 
+                            id="modal-prompt" 
+                            placeholder="E.g., 'Describe what's in this image' or 'What objects do you see?'"
+                            rows="3"></textarea>
+                    </div>
+                    <div class="modal-buttons">
+                        <button id="cancel-media" class="btn-secondary">Cancel</button>
+                        <button id="send-media" class="btn-primary">Analyze Image</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module" src="scripts/app.js"></script>
+</body>
+</html>
