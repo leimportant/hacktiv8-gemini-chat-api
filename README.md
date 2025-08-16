@@ -51,13 +51,6 @@ gemini-chatbot-api
    node index.js
    ```
 
-2. In a new terminal, start the frontend development server:
-   ```bash
-   npx live-server src/public
-   ```
-
-3. The application will automatically open in your default browser at `http://127.0.0.1:8080`
-
 ## Usage
 
 - Type your message in the input field

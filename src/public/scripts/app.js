@@ -1,3 +1,7 @@
+let currentSessionId = localStorage.getItem('chatSessionId') || 
+                      'session_' + Date.now();
+localStorage.setItem('chatSessionId', currentSessionId);
+
 document.addEventListener('DOMContentLoaded', () => {
     const API_URL = 'http://localhost:3000'; // Use the API URL from config.js
 
@@ -74,7 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ message })
+                body: JSON.stringify({ 
+                    message,
+                    sessionId: currentSessionId 
+                })
             });
 
             const data = await response.json();
